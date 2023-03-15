@@ -1,0 +1,54 @@
+CRIANDO O PROJETO SPRING BOOT
+
+Fat jar: arquivo .jar criado para projeto Spring Boot. Contém tudo o que precisa para rodar a aplicação (servlet container* (Apache Tomcat) + dependências).
+
+*: como se fosse um servidorzinho web
+
+Para gerar o fat jar:
+
+- Right click > Run as >  Maven build...
+
+- Em goals, colocar "clean package"
+
+- Dar o run. O jar constará dentro da pasta "target" (ao dar um refresh (F5) na pasta)
+
+Rodando o jar:
+
+java -jar {nome-do-arquivo}
+
+src/com.algaworks.algalog.AlgalogApiApplication.java: graças a essa classe podemos rodar a aplicação Spring Boot.
+
+---
+
+IMPLEMENTANDO COLLECTION RESOURCE
+
+Estrutura de pastas de projeto Maven:
+
+- src/main/java: todas as classes da aplicação vão aqui.
+
+- src/main/resources: arquivos estáticos/de configuração vão aqui.
+
+@RestController
+public class ClienteController {
+	@GetMapping("/clientes")
+	public String listar() {
+		return "Teste";
+	}
+}
+
+--
+
+CONTENT NEGOTIATION
+
+Content negotiation: negociação de conteúdo; o consumidor pode determinar em qual formato ele recebe o recurso requisitado.
+
+Isso se dá através da chave "Accept" do header da requisição. Por padrão, o formato recebido é JSON, mas pode ser mudado para, por exemplo, XML:
+
+Accept: application/xml
+
+Para a aplicação entregar um XML, além disso, deve-se também inserir uma dependência para tal no pom.xml do projeto:
+
+<dependency>
+	<groupId>com.fasterxml.jackson.dataformat</groupId>
+	<artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
