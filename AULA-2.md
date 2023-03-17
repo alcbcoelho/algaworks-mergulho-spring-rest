@@ -66,3 +66,8 @@ spring.datasource.password = root
 - **Spring Data JPA:** Biblioteca/dependência para nos ajudar a trabalhar com Jakarta Persistence.
 
 <img src="https://javabydeveloper.com/wp-content/uploads/2020/02/ORM-object-relational-mapping.png?ezimgfmt=ng%3Awebp%2Fngcb330%2Frs%3Adevice%2Frscb330-1">
+
+# 2.3. Usando Spring Data JPA
+
+- **Spring Data JPA:** Biblioteca para se criar repositórios com Jakarta Persistence. NÃO é uma implementação do JPA!
+	- **Repositório:** Classe que permite implementar métodos que permitem realizar as operações de persistência (manipulação) de dados.
