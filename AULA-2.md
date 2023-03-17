@@ -71,3 +71,15 @@ spring.datasource.password = root
 
 - **Spring Data JPA:** Biblioteca para se criar repositórios com Jakarta Persistence. NÃO é uma implementação do JPA!
 	- **Repositório:** Classe que permite implementar métodos que permitem realizar as operações de persistência (manipulação) de dados.
+- O Spring Data JPA instancia, on-the-go, um repositório para cada entidade do BD a partir de uma interface {EntityName}Repository, que estende a interface `JpaRepository<T, ID>` - que contém a especificação de vários métodos p/ realização de operações com o BD.
+	- `T:` Tipo da entidade associada ao repositório em questão
+	- `ID:` Tipo associado ao atributo identificador primário da entidade.
+
+Exemplo de uma interface de repositório:
+
+```
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+
+}
+```git push
